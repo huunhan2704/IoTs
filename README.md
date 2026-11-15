@@ -1,4 +1,4 @@
-# IOT-04 — HỆ THỐNG THEO DÕI ĐIỀU KIỆN KHO BẰNG CẢM BIẾN
+# HỆ THỐNG THEO DÕI ĐIỀU KIỆN KHO BẰNG CẢM BIẾN
 > **Kiến trúc Microservices & Triết lý Dữ liệu Trung thực (Honest Data, No Blind Interpolation)**
 
 ---
