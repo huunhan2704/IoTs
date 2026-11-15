@@ -7,10 +7,11 @@
 
 Hệ thống được thiết kế và triển khai hoàn chỉnh theo đặc tả đồ án **IOT-04**, tối ưu hóa cho ngành logistics và chuỗi cung ứng dược phẩm tuân thủ **GSP/GDP**:
 
-* **Cơ sở dữ liệu:** Microsoft SQL Server 2019/2022/2025 (Chuyển đổi tối ưu từ PostgreSQL 16 + TimescaleDB).
+* **Cơ sở dữ liệu:** Microsoft SQL Server 2019/2022/2025 (Chuyển đổi tối ưu từ PostgreSQL 16 + TimescaleDB, tích hợp 4 Views, 3 Triggers, 4 Stored Procedures).
 * **Backend:** ASP.NET Core (.NET 9), Dapper, SignalR WebSocket Hub, MQTT Broker nhúng (`MQTTnet` tại cổng 1883).
-* **Frontend:** React 18, Vite, Recharts (`connectNulls={false}`, `GapOverlay`), Tailwind-inspired dark theme.
-* **Simulator:** Bộ giả lập cảm biến chạy ngầm với các kịch bản thực tế (Mất mạng, Pin yếu, Trôi chỉ số CUSUM, Vượt ngưỡng an toàn).
+* **Frontend:** React 18, Vite, Recharts (`connectNulls={false}`, `GapOverlay`), Dark theme.
+* **Desktop App (WinForms):** Ứng dụng C# Windows Forms (.NET 9) phong cách không màu / monochrome chuẩn văn phòng công sở, tự động đồng bộ thời gian thực với SQL Server.
+* **Firmware:** ESP32 Wokwi C++ gửi dữ liệu về HiveMQ định kỳ 10 giây.
 
 ---
 
@@ -32,14 +33,21 @@ Hệ thống được thiết kế và triển khai hoàn chỉnh theo đặc t�
 
 ## 3. Hướng Dẫn Khởi Chạy
 
-### Cách 1: Khởi chạy 1-Click (Khuyên dùng)
+### Cách 1: Khởi chạy Web App 1-Click (Khuyên dùng)
 Mở PowerShell tại thư mục này và chạy:
 ```powershell
 .\run.ps1
 ```
 Trình duyệt sẽ tự động mở tại: **`http://localhost:5080`**.
 
-### Cách 2: Chế độ phát triển Frontend riêng (Hot Reload)
+### Cách 2: Khởi chạy Ứng dụng Desktop WinForms (Không Màu / Chuẩn Công Sở)
+Double-click file `run_winform.bat` hoặc mở terminal chạy:
+```powershell
+cd winform
+dotnet run
+```
+
+### Cách 3: Chế độ phát triển Frontend riêng (Hot Reload)
 * Terminal 1 (Backend):
   ```powershell
   cd backend
